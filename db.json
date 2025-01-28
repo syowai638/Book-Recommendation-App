@@ -1,0 +1,16 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Fiction",
+        "rating": 4.5,
+        "recommendations": 10,
+        "description": "A classic novel about the American dream.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg"
+      }
+    ]
+  }
+  
+  
