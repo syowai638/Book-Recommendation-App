@@ -9,81 +9,87 @@ function App() {
   const [selectedBook, setSelectedBook] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/books') 
-      .then(response => response.json())
+    fetch('http://localhost:3001/books')
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to fetch books");
+        return response.json();
+      })
       .then(data => {
         setBooks(data);
-        setSearchResults(data); 
-      });
+        setSearchResults(data);
+      })
+      .catch(error => console.error("Error loading books:", error));
   }, []);
 
   const handleSearch = (searchTerm) => {
-    const filteredBooks = books.filter(book => {
-      const lowerCaseTitle = book.title.toLowerCase();
-      const lowerCaseGenre = book.genre.toLowerCase();
-      const lowerCaseSearchTerm = searchTerm.toLowerCase();
-
-      return (
-        lowerCaseTitle.includes(lowerCaseSearchTerm) ||
-        lowerCaseGenre.includes(lowerCaseSearchTerm)
-      );
-    });
+    if (!searchTerm.trim()) {
+      setSearchResults(books);
+      return;
+    }
+    const filteredBooks = books.filter(book => 
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      book.genre.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     setSearchResults(filteredBooks);
   };
 
   const handleBookSelect = (bookId) => {
-    const selectedBook = books.find(book => book.id === bookId);
-    setSelectedBook(selectedBook);
+    const selected = books.find(book => book.id === bookId);
+    setSelectedBook(selected);
   };
 
   const handleRate = (bookId, rating) => {
     fetch(`http://localhost:3001/books/${bookId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ rating }) 
+      body: JSON.stringify({ rating })
     })
       .then(response => response.json())
       .then(updatedBook => {
         setBooks(prevBooks => 
           prevBooks.map(book => (book.id === updatedBook.id ? updatedBook : book))
         );
+        if (selectedBook && selectedBook.id === bookId) {
+          setSelectedBook(updatedBook);
+        }
       })
-      .catch(error => {
-        console.error('Error updating rating:', error);
-        // Handle error gracefully (e.g., display an error message to the user)
-      });
+      .catch(error => console.error('Error updating rating:', error));
   };
 
   const handleRecommend = (bookId) => {
+    const bookToUpdate = books.find(book => book.id === bookId);
+    if (!bookToUpdate) return;
+
     fetch(`http://localhost:3001/books/${bookId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ recommendations: selectedBook.recommendations + 1 }) 
+      body: JSON.stringify({ recommendations: bookToUpdate.recommendations + 1 })
     })
       .then(response => response.json())
       .then(updatedBook => {
         setBooks(prevBooks => 
           prevBooks.map(book => (book.id === updatedBook.id ? updatedBook : book))
         );
+        setSelectedBook(updatedBook);
       })
-      .catch(error => {
-        console.error('Error updating recommendations:', error);
-        // Handle error gracefully (e.g., display an error message to the user)
-      });
+      .catch(error => console.error('Error updating recommendations:', error));
   };
 
   return (
     <div>
       <h1>Book Recommendation App</h1>
-      <BookSearch onSearch={handleSearch} /> 
-      <BookList 
-        books={searchResults} 
-        onBookSelect={handleBookSelect} 
-      /> 
+      <BookSearch onSearch={handleSearch} />
+      <BookList books={searchResults} onBookSelect={handleBookSelect} />
+
       {selectedBook && (
         <div>
-          <h2>{selectedBook.title}</h2> 
-          {/* Display other book details here */}
+          <h2>{selectedBook.title}</h2>
+          <img 
+            src={selectedBook.imageURL} 
+            alt={selectedBook.title} 
+            style={{ width: '150px', height: '200px' }} 
+          />
+          <p>{selectedBook.description}</p>
           <RatingForm 
             bookId={selectedBook.id} 
             onRate={handleRate} 
