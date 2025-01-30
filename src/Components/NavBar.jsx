@@ -12,6 +12,7 @@ function Navbar (){
                     <li><a href='#List'>List</a></li>
                     <li><a href ='#Details'>Details</a></li>
                     <li><a href ='#search'>Search</a></li>
+                    <li href='#Rating'><a>Rating</a></li>
                 </ul>
             </nav>
         </div>
