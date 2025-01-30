@@ -38,3 +38,13 @@ navbar-menu {
   background-color: lightgreen;
   color: black;
 }
+#footer {
+  background-color: lightseagreen;
+  justify-content: center;
+  padding: 5px 5px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+}

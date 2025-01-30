@@ -20,7 +20,7 @@ Dynamic rendering refers to the practice of loading content in real-time without
 ## Installation
 1. **Clone the repository**
 ~~~bash
-git clone git@github.com:michellmbogo/bots project.git
+git clone git@github.com:syowai638/Book-Recommendation-App.git
 ~~~
 2.**Install node modules**
 ~~~bash
@@ -32,7 +32,7 @@ npm run start
 ~~~
 4. **Navigate to the project directory**
 ~~~bash
-cd bots-project
+cd Book-Recommendation-App
 ~~~
 4. **Run the server**
 ~~~bash
@@ -65,5 +65,5 @@ Distributed under the MIT license
 
 ## Contact
 
-Name : Michell mbogo
+Name : Group 6
 Email : michellwambui.m@gmail.com
