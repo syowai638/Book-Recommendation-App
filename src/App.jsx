@@ -1,44 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import BookList from './BookList'; 
-import BookSearch from './BookSearch'; 
-import RatingForm from './RatingForm'; 
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import BookList from './BookList';
+import BookSearch from './BookSearch';
+import RatingForm from './RatingForm';
+import BookDetail from './BookDetail'; // Make sure to create this component for displaying book details.
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3001/books')
       .then(response => {
-        if (!response.ok) throw new Error("Failed to fetch books");
+        if (!response.ok) throw new Error('Failed to fetch books');
         return response.json();
       })
-      .then(data => {
-        setBooks(data);
-        setSearchResults(data);
-      })
-      .catch(error => console.error("Error loading books:", error));
+      .then(data => setBooks(data))
+      .catch(error => console.error('Error loading books:', error));
   }, []);
 
   const handleSearch = (searchTerm) => {
-    if (!searchTerm.trim()) {
-      setSearchResults(books);
-      return;
-    }
-    const filteredBooks = books.filter(book => 
-      book.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    if (!searchTerm.trim()) return;
+    const filteredBooks = books.filter(book =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.genre.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setSearchResults(filteredBooks);
-  };
-
-  const handleBookSelect = (bookId) => {
-    const selected = books.find(book => book.id === bookId);
-    setSelectedBook(selected);
+    setBooks(filteredBooks);
   };
 
   const handleRate = (bookId, rating) => {
+    const bookToUpdate = books.find(book => book.id === bookId);
     fetch(`http://localhost:3001/books/${bookId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -46,7 +37,7 @@ function App() {
     })
       .then(response => response.json())
       .then(updatedBook => {
-        setBooks(prevBooks => 
+        setBooks(prevBooks =>
           prevBooks.map(book => (book.id === updatedBook.id ? updatedBook : book))
         );
         if (selectedBook && selectedBook.id === bookId) {
@@ -58,8 +49,6 @@ function App() {
 
   const handleRecommend = (bookId) => {
     const bookToUpdate = books.find(book => book.id === bookId);
-    if (!bookToUpdate) return;
-
     fetch(`http://localhost:3001/books/${bookId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -67,7 +56,7 @@ function App() {
     })
       .then(response => response.json())
       .then(updatedBook => {
-        setBooks(prevBooks => 
+        setBooks(prevBooks =>
           prevBooks.map(book => (book.id === updatedBook.id ? updatedBook : book))
         );
         setSelectedBook(updatedBook);
@@ -76,28 +65,44 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Book Recommendation App</h1>
-      <BookSearch onSearch={handleSearch} />
-      <BookList books={searchResults} onBookSelect={handleBookSelect} />
+    <Router>
+      <div>
+        <h1>Book Recommendation App</h1>
+        <nav>
+          <Link to="/books">Browse Books</Link> | <Link to="/search">Search Books</Link>
+        </nav>
+        <BookSearch onSearch={handleSearch} />
 
-      {selectedBook && (
-        <div>
-          <h2>{selectedBook.title}</h2>
-          <img 
-            src={selectedBook.imageURL} 
-            alt={selectedBook.title} 
-            style={{ width: '150px', height: '200px' }} 
+        <Switch>
+          <Route exact path="/books">
+            <BookList books={books} />
+          </Route>
+
+          <Route
+            path="/books/:id"
+            render={({ match }) => {
+              const bookId = parseInt(match.params.id);
+              const book = books.find(b => b.id === bookId);
+              setSelectedBook(book);
+              return (
+                <div>
+                  <BookDetail book={book} />
+                  <RatingForm
+                    bookId={book.id}
+                    onRate={handleRate}
+                    onRecommend={handleRecommend}
+                  />
+                </div>
+              );
+            }}
           />
-          <p>{selectedBook.description}</p>
-          <RatingForm 
-            bookId={selectedBook.id} 
-            onRate={handleRate} 
-            onRecommend={handleRecommend} 
-          />
-        </div>
-      )}
-    </div>
+
+          <Route path="/search">
+            <BookList books={books} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

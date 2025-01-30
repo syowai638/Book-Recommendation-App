@@ -1,30 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const BookSearch = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const BookSearch = ({ setBooks }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      fetchBooks(); // Reset to all books when search is cleared
+    } else {
+      fetchFilteredBooks();
+    }
+  }, [searchTerm]);
+
+  const fetchBooks = () => {
+    fetch("http://localhost:3001/books")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSearch(searchTerm);
+  const fetchFilteredBooks = () => {
+    fetch(`http://localhost:3001/books?q=${searchTerm}`)
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       <label htmlFor="search">Search Books:</label>
       <input
         type="text"
         id="search"
         name="search"
         value={searchTerm}
-        onChange={handleSearchChange}
+        onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search by title or genre"
+        aria-label="Search for books by title or genre"
       />
-      <button type="submit">Search</button>
-    </form>
+    </div>
   );
 };
 
