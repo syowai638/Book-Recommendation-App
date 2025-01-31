@@ -12,13 +12,13 @@ const BookSearch = ({ setBooks }) => {
   }, [searchTerm]);
 
   const fetchBooks = () => {
-    fetch("http://localhost:3001/books")
+    fetch("http://localhost:4000/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   };
 
   const fetchFilteredBooks = () => {
-    fetch(`http://localhost:3001/books?q=${searchTerm}`)
+    fetch(`http://localhost:4000/books?q=${searchTerm}`)
   
       .then((res) => res.json())
       .then((data) => setBooks(data));
