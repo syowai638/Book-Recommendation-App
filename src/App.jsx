@@ -4,7 +4,7 @@ import RatingForm from "./Components/RatingForm";
 import BookList from './Components/BookList';
 import Navbar from "./Components/Navbar";
 import Footer from './Components/Footer';
-import "./App.css
+import "./App.css";
 
 function App() {
   const [books, setBooks] = useState([]);
