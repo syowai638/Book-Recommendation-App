@@ -57,6 +57,7 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: var(--clr-ghost-white);
 }
 
 .book-info {
@@ -115,4 +116,8 @@ h2 {
 
 .rating-section {
   margin-bottom: 30px;
+}
+
+.full-page {
+  height: 100vh;
 }
