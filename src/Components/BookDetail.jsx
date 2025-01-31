@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function BookDetail() {
     const [book, setBook] = useState([]);
@@ -12,18 +13,21 @@ function BookDetail() {
     }, [id]);
 
     return (
-        <main>
-            <div className="book-detail">
-                <img src={book.imageURL} alt={book.title} className="book-image" />
-                <div className="book-info">
-                    <h1>{book.title}</h1>
-                    <p><strong>Author:</strong> {book.author}</p>
-                    <p><strong>Genre:</strong> {book.genre}</p>
-                    <p><strong>Rating:</strong> {book.rating}</p>
-                    <p><strong>Description:</strong> {book.description}</p>
+        <>
+            <NavBar />
+            <main className="full-page">
+                <div className="book-detail">
+                    <img src={book.imageURL} alt={book.title} className="book-image" />
+                    <div className="book-info">
+                        <h1>{book.title}</h1>
+                        <p><strong>Author:</strong> {book.author}</p>
+                        <p><strong>Genre:</strong> {book.genre}</p>
+                        <p><strong>Rating:</strong> {book.rating}</p>
+                        <p><strong>Description:</strong> {book.description}</p>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </>
     );
 }
 
