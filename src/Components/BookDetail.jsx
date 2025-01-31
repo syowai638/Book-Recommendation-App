@@ -1,29 +1,30 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-// import RatingForm from './RatingForm'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const BookDetails = ({books}) => {
-  const { id } = useParams();
-  const book = BookDetails[id];
+function BookDetail() {
+    const [book, setBook] = useState([]);
+    const { id } = useParams();
 
-  return (
-    <div className="book-details">
-      <h2>{book.title}</h2>
-      <img
-           src={book.imageUrl}
-           alt={book.title}
-           />
-      <p><strong>Author:</strong> {book.author}</p>
-      <p><strong>Genre:</strong> {book.genre}</p>
-      <p><strong>Description:</strong> {book.description}</p>
-      <p><strong>Rating:</strong>{book.rating}</p>
+    useEffect(() => {
+        fetch(`http://localhost:4000/books/${id}`)
+            .then(res => res.json())
+            .then(data => setBook(data))
+    }, [id]);
 
-    </div>
-  );
-};
+    return (
+        <main>
+            <div className="book-detail">
+                <img src={book.imageURL} alt={book.title} className="book-image" />
+                <div className="book-info">
+                    <h1>{book.title}</h1>
+                    <p><strong>Author:</strong> {book.author}</p>
+                    <p><strong>Genre:</strong> {book.genre}</p>
+                    <p><strong>Rating:</strong> {book.rating}</p>
+                    <p><strong>Description:</strong> {book.description}</p>
+                </div>
+            </div>
+        </main>
+    );
+}
 
-export default BookDetails;
-
-
-
-
+export default BookDetail;
