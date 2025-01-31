@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./NavBar";
 
 const RatingForm = ({ bookId, books, setBooks }) => {
   const [rating, setRating] = useState(0);
@@ -43,29 +44,34 @@ const RatingForm = ({ bookId, books, setBooks }) => {
   };
 
   return (
-    <div>
-      <h2>Rate and Recommend</h2>
-      <label htmlFor="rating">Rating:</label>
-      <select
-        id="rating"
-        name="rating"
-        value={rating}
-        onChange={(e) => setRating(parseInt(e.target.value))}
-      >
-        <option value="0">Select a rating</option>
-        {[1, 2, 3, 4, 5].map((num) => (
-          <option key={num} value={num}>
-            {num}
-          </option>
-        ))}
-      </select>
-      <button type="button" onClick={handleRate} disabled={rating === 0}>
-        Rate Book
-      </button>
-      <button type="button" onClick={handleRecommend} disabled={isRecommended}>
-        {isRecommended ? "Recommended ✔" : "Recommend Book"}
-      </button>
-    </div>
+    <>
+      <Navbar />
+      <main className="rating-form">
+        <h1>Rate and Recommend</h1>
+        <div className="rating-section">
+          <label htmlFor="rating" className="rating-title">Rating:</label>
+          <select
+            id="rating"
+            name="rating"
+            value={rating}
+            onChange={(e) => setRating(parseInt(e.target.value))}
+          >
+            <option value="0">Select a rating</option>
+            {[1, 2, 3, 4, 5].map((num) => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </select>
+          <button type="button" onClick={handleRate} disabled={rating === 0}>
+            Rate Book
+          </button>
+        </div>
+        <button type="button" onClick={handleRecommend} disabled={isRecommended}>
+          {isRecommended ? "Recommended ✔" : "Recommend Book"}
+        </button>
+      </main>
+    </>
   );
 };
 
