@@ -19,6 +19,7 @@ const BookSearch = ({ setBooks }) => {
 
   const fetchFilteredBooks = () => {
     fetch(`http://localhost:3001/books?q=${searchTerm}`)
+  
       .then((res) => res.json())
       .then((data) => setBooks(data));
   };
