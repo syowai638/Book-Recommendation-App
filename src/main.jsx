@@ -7,6 +7,10 @@ import BookDetail from './Components/BookDetail.jsx'
 
 const router = createBrowserRouter([
   {
+    path: '/books',
+    element: <App />,
+  },
+  {
     path: '/',
     element: <App />,
   },

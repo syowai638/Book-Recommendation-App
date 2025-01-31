@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import BookDetail from './Components/BookDetail';
 import BookList from './Components/BookList';
 import "./App.css"
 
