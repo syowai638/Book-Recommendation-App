@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 function Navbar (){
       
 
@@ -7,14 +7,13 @@ function Navbar (){
         <div>
             <nav id='navbar'>
                 <h1 id='title'>Book Recommendation App</h1>
-                <ul className="navbar-menu">
-                    <li><a href=''>Home</a></li>
-                    <li><a href='#List'>List</a></li>
-                    <li><a href ='#Details'>Details</a></li>
-                    <li><a href ='#search'>Search</a></li>
-                    <li href='#Rating'><a>Rating</a></li>
-                </ul>
+                <div className="navbar-menu">
+                    <NavLink to='/home' className='nav-link'>Home</NavLink>
+                    <NavLink to='/ratingform' className='nav-link'>Rating</NavLink>
+                </div>
+                <input type="text" placeholder="Search"/>
             </nav>
+            
         </div>
     )
 }export default Navbar;
