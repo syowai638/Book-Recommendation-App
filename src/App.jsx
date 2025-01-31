@@ -19,7 +19,8 @@ function App() {
     <>
     <Navbar />
     <BookList books={books} />
-    <Footer /> </>
+    <Footer />
+    </>
   );
 }
 
