@@ -1,18 +1,208 @@
 {
-    "books": [
-      {
-        "id": 1,
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "genre": "Fiction",
-        "rating": 4.5,
-        "recommendations": 10,
-        "description": "A classic novel about the American dream.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg"
-      }
+  "books": [
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Fiction",
+      "rating": 4.5,
+      "recommendations": 12,
+      "description": "A classic novel about the American dream.",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg"
+    },
+    {
+      "id": 2,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "Fiction",
+      "rating": 4.8,
+      "recommendations": 18,
+      "description": "A novel about racial injustice in the Deep South.",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/1200px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg"
+    },
+    {
+      "id": 3,
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Dystopian",
+      "rating": 4.7,
+      "recommendations": 22,
+      "description": "A dystopian novel exploring totalitarianism and surveillance.",
+      "imageURL": "https://m.media-amazon.com/images/I/71kXYs4tCvL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "genre": "Adventure",
+      "rating": 4.2,
+      "recommendations": 8,
+      "description": "A thrilling tale of obsession and revenge on the high seas.",
+      "imageURL": "https://m.media-amazon.com/images/I/610qaD5PskL.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "genre": "Romance",
+      "rating": 4.6,
+      "recommendations": 15,
+      "description": "A timeless romance and commentary on class and society.",
+      "imageURL": "https://m.media-amazon.com/images/I/81Scutrtj4L._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "genre": "Fiction",
+      "rating": 4.3,
+      "recommendations": 11,
+      "description": "A story of teenage rebellion and self-discovery.",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg/640px-The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg"
+    },
+    {
+      "id": 7,
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "genre": "Fantasy",
+      "rating": 4.9,
+      "recommendations": 30,
+      "description": "A fantastical adventure in Middle-earth.",
+      "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546071216i/5907.jpg"
+    },
+    {
+      "id": 8,
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "genre": "Historical",
+      "rating": 4.1,
+      "recommendations": 6,
+      "description": "An epic novel about love and conflict during the Napoleonic Wars.",
+      "imageURL": "https://images.squarespace-cdn.com/content/v1/5dc21d198c1cfd4ef901f025/e954252b-1ec4-421a-bafa-2db1d98b93e2/A1aDb5U5myL.jpeg"
+    },
+    {
+      "id": 9,
+      "title": "The Road",
+      "author": "Cormac McCarthy",
+      "genre": "Post-Apocalyptic",
+      "rating": 4.5,
+      "recommendations": 14,
+      "description": "A haunting tale of survival in a bleak world.",
+      "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1600667691i/350540.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "genre": "Romance",
+      "rating": 4.7,
+      "recommendations": 19,
+      "description": "A gothic romance novel with themes of morality and independence.",
+      "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1692725440i/197321006.jpg"
+    },
+    {
+          "id": 11,
+          "title": "Brave New World",
+          "author": "Aldous Huxley",
+          "genre": "Dystopian",
+          "rating": 4.4,
+          "recommendations": 17,
+          "description": "A futuristic novel that critiques consumerism and conformity.",
+          "imageURL": "https://images.blinkist.io/images/books/64228e659c88930008b87a3d/1_1/470.jpg"
+        },
+        {
+          "id": 12,
+          "title": "The Alchemist",
+          "author": "Paulo Coelho",
+          "genre": "Philosophical",
+          "rating": 4.3,
+          "recommendations": 21,
+          "description": "A fable about following one's dreams and listening to the heart.",
+          "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483412266i/865.jpg"
+        },
+        {
+          "id": 13,
+          "title": "Frankenstein",
+          "author": "Mary Shelley",
+          "genre": "Horror",
+          "rating": 4.6,
+          "recommendations": 12,
+          "description": "A tale of science, ambition, and the consequences of creating life.",
+          "imageURL": "https://m.media-amazon.com/images/I/81AuVq270jL._UF1000,1000_QL80_.jpg"
+        },
+        {
+          "id": 14,
+          "title": "Dracula",
+          "author": "Bram Stoker",
+          "genre": "Horror",
+          "rating": 4.4,
+          "recommendations": 10,
+          "description": "A classic vampire tale filled with suspense and intrigue.",
+          "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1679623832i/123645934.jpg"
+        },
+        {
+          "id": 15,
+          "title": "The Kite Runner",
+          "author": "Khaled Hosseini",
+          "genre": "Drama",
+          "rating": 4.8,
+          "recommendations": 23,
+          "description": "A story of friendship, betrayal, and redemption in Afghanistan.",
+          "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1484565687i/77203.jpg"
+        },
+        {
+          "id": 16,
+          "title": "Life of Pi",
+          "author": "Yann Martel",
+          "genre": "Adventure",
+          "rating": 4.5,
+          "recommendations": 14,
+          "description": "An adventurous tale of survival at sea with a tiger as a companion.",
+          "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1631251689i/4214.jpg"
+        },
+        {
+          "id": 17,
+          "title": "The Shining",
+          "author": "Stephen King",
+          "genre": "Horror",
+          "rating": 4.7,
+          "recommendations": 20,
+          "description": "A gripping tale of madness and supernatural terror in a haunted hotel.",
+          "imageURL": "https://images.thenile.io/r1000/9780345806789.jpg"
+        },
+        {
+          "id": 18,
+          "title": "Animal Farm",
+          "author": "George Orwell",
+          "genre": "Political Satire",
+          "rating": 4.6,
+          "recommendations": 18,
+          "description": "An allegorical novella critiquing totalitarian regimes.",
+          "imageURL": "https://m.media-amazon.com/images/I/71JUJ6pGoIL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "id": 19,
+          "title": "A Tale of Two Cities",
+          "author": "Charles Dickens",
+          "genre": "Historical",
+          "rating": 4.3,
+          "recommendations": 9,
+          "description": "A historical novel set during the tumultuous French Revolution.",
+          "imageURL": "https://cloud.firebrandtech.com/api/v2/image/111/9780785839835/CoverArtHigh/XL"
+        },
+        {
+          "id": 20,
+          "title": "The Giver",
+          "author": "Lois Lowry",
+          "genre": "Dystopian",
+          "rating": 4.5,
+          "recommendations": 16,
+          "description": "A thought-provoking novel about a society of enforced sameness.",
+          "imageURL": "https://m.media-amazon.com/images/I/710dON3UBEL._AC_UF1000,1000_QL80_.jpg"
+        }
+      ]
+    }
+    
 
-    ]
-  }
-  
 
   
