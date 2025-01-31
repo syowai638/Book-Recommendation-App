@@ -16,9 +16,10 @@ function App() {
   }, []);
 
   return (
-    <><Navbar /></>
-    <><BookList books={books} /></>
-    <><Footer /></>
+    <>
+    <Navbar />
+    <BookList books={books} />
+    <Footer /> </>
   );
 }
 
