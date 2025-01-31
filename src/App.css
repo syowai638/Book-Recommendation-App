@@ -22,7 +22,6 @@
 
 main {
   background-color: var(--clr-gunmetal);
-  min-height: 100vh;
   width: 100vw;
   padding: 50px 100px;
   display: flex;
@@ -42,6 +41,7 @@ main {
 
 .book-card {
   text-align: center;
+  padding: 20px;
 }
 
 .book-image {
@@ -74,8 +74,45 @@ main {
 
 h1 {
   margin-bottom: 30px;
+  color: var(--clr-ghost-white);
 }
 
 h2 {
   font-size: 0.95rem;
+}
+
+#navbar {
+  background-color: var(--clr-davy-gray);
+  display: flex;
+  align-items: center;
+  padding: 20px 100px;
+}
+
+#title {
+  margin-bottom: 0px;
+  font-size: 2rem;
+}
+
+.navbar-menu a:hover {
+  background-color: var(--clr-imperial-red);
+  color: var(--clr-ghost-white);
+}
+
+#footer {
+  width: 100vw;
+  background-color: var(--clr-imperial-red);
+  position: absolute;
+  bottom: -33%;
+}
+
+.rating-form {
+  height: 100vh;
+}
+
+.rating-title {
+  color: var(--clr-ghost-white);
+}
+
+.rating-section {
+  margin-bottom: 30px;
 }
