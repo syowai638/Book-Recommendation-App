@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BookSearch from "./Components/BookSearch";
 import RatingForm from "./Components/RatingForm";
 import BookList from './Components/BookList';
-import Navbar from "./Components/Navbar";
+import NavBar from "./Components/NavBar";
 import Footer from './Components/Footer';
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-    <Navbar />
+    <NavBar />
     <BookList books={books} />
     <Footer />
     </>
