@@ -1,20 +1,23 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BookList from './Components/BookList';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import BookDetail from './Components/BookDetail';
+import BookList from './Components/BookList';
+import "./App.css"
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/books')
+      .then(res => res.json())
+      .then(data => setBooks(data))
+  })
+
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/books" element={<BookList />} />
-          <Route path="/books/:id" element={<BookDetail />} />
-          <Route path="/" element={<BookList />} /> // Default route
-        </Routes>
-      </Router>
-      <BookDetail />
-    </div>
-  );
+    <>
+      <BookList books={books} />
+    </>
+  )
 }
 
 export default App;
