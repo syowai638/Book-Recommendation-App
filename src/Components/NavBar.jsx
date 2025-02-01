@@ -1,11 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import BookSearch from "./BookSearch";
-
-
 function Navbar({ searchTerm, onSearch }) {
-
-
    return (
        <div>
            <nav id='navbar'>
@@ -16,11 +12,9 @@ function Navbar({ searchTerm, onSearch }) {
                </div>
                <BookSearch searchTerm={searchTerm} onSearch={onSearch} />
            </nav>
-
-
        </div>
    )
 }
-
-
 export default Navbar;
+
+
