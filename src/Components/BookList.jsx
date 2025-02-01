@@ -8,9 +8,13 @@ function BookList({ books }) {
                 {books.map(book => (
                     <div key={book.id} className='book-card'>
                         <Link to={`/books/${book.id}`} className='book-link'>
-                            <p className='book-recommend'>Recommended!</p>
+                            <div className="book-tags">
+                            </div>
                             <img src={book.imageURL} alt={book.title} className='book-thumbnail' />
-                            <h2>{book.title}</h2>
+                            <div className='info-section'>
+                                <h2 className='book-title'>{book.title}</h2>
+                                <p>{book.rating}</p>
+                            </div>
                         </Link>
                     </div>
                 ))
@@ -20,5 +24,5 @@ function BookList({ books }) {
     );
 }
 
-
 export default BookList;
+

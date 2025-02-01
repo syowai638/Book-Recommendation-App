@@ -19,16 +19,19 @@
 
 }
 
-
 main {
   background-color: var(--clr-gunmetal);
-  min-height: 100vh;
   width: 100vw;
-  padding: 50px 100px;
+  padding: 150px 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--clr-ghost-white);
+}
+
+.full-page {
+  height: 100vh;
 }
 
 .book-list {
@@ -42,6 +45,7 @@ main {
 
 .book-card {
   text-align: center;
+  padding: 20px;
 }
 
 .book-image {
@@ -57,6 +61,7 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: var(--clr-ghost-white);
 }
 
 .book-info {
@@ -74,8 +79,78 @@ main {
 
 h1 {
   margin-bottom: 30px;
+  color: var(--clr-ghost-white);
 }
 
 h2 {
   font-size: 0.95rem;
+}
+
+#navbar {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background-color: var(--clr-davy-gray);
+  display: flex;
+  align-items: center;
+  padding: 20px 100px;
+}
+
+#title {
+  margin-bottom: 0px;
+  font-size: 1.5rem;
+  min-width: 350px;
+}
+
+.navbar-menu {
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu a:hover {
+  background-color: var(--clr-imperial-red);
+  color: var(--clr-ghost-white);
+}
+
+#footer {
+  width: 100vw;
+  background-color: var(--clr-imperial-red);
+  position: relative;
+  bottom: 0;
+}
+
+.select-options {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.info-section {
+  display: grid;
+  grid-template-columns: 1fr 0fr;
+}
+
+.book-title {
+  margin-right: 30px;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: var(--clr-imperial-red);
+  color: var(--clr-ghost-white);
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.button:hover {
+  background-color: var(--clr-falu-red);
+  cursor: pointer;
 }
