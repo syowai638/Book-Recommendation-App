@@ -23,11 +23,8 @@ function BookList({ books }) {
            </div >
        </main >
    );
+
 }
 
-
 export default BookList;
-
-
-
 
