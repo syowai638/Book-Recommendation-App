@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function BookList({ books }) {
     return (
         <main>
-            <h1>Book List</h1>
+            {books.length != 0 ? <h1>Book List</h1> : <h1>No Books Found</h1>}
             <div className='book-list'>
                 {books.map(book => (
                     <div key={book.id} className='book-card'>
