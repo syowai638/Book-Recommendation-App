@@ -72,7 +72,7 @@ function RatingForm() {
                 if (!response.ok) {
                     throw new Error("Failed to update book");
                 }
-                navigate(`/books/${selectedBookId}`);
+                navigate(`/home`);
             })
             .catch((error) => {
                 console.error("Error updating book:", error);

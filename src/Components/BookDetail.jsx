@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 function BookDetail() {
     const [book, setBook] = useState([]);
@@ -28,6 +29,7 @@ function BookDetail() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }
