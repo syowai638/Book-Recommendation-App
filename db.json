@@ -75,8 +75,8 @@
       "title": "War and Peace",
       "author": "Leo Tolstoy",
       "genre": "Historical",
-      "rating": 4.1,
-      "recommendations": 6,
+      "rating": 4.5,
+      "recommendations": 7,
       "description": "An epic novel about love and conflict during the Napoleonic Wars.",
       "imageURL": "https://images.squarespace-cdn.com/content/v1/5dc21d198c1cfd4ef901f025/e954252b-1ec4-421a-bafa-2db1d98b93e2/A1aDb5U5myL.jpeg"
     },
@@ -85,8 +85,8 @@
       "title": "The Road",
       "author": "Cormac McCarthy",
       "genre": "Post-Apocalyptic",
-      "rating": 4.5,
-      "recommendations": 14,
+      "rating": 3.8,
+      "recommendations": 15,
       "description": "A haunting tale of survival in a bleak world.",
       "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1600667691i/350540.jpg"
     },
@@ -108,7 +108,7 @@
       "rating": 4.4,
       "recommendations": 17,
       "description": "A futuristic novel that critiques consumerism and conformity.",
-      "imageURL": "https://images.blinkist.io/images/books/64228e659c88930008b87a3d/1_1/470.jpg"
+      "imageURL": "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg"
     },
     {
       "id": "12",
