@@ -21,6 +21,7 @@
 
 main {
   background-color: var(--clr-gunmetal);
+  min-height: 97vh;
   width: 100vw;
   padding: 150px 200px;
   display: flex;
@@ -51,6 +52,7 @@ main {
   background-color: var(--clr-davy-gray);
   height: 250px;
   width: 200px;
+  border-radius: 10px;
 }
 
 .book-image {
