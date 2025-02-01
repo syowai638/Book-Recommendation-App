@@ -91,9 +91,11 @@ h2 {
   width: 100vw;
   top: 0;
   background-color: var(--clr-davy-gray);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: center;
   align-items: center;
-  padding: 20px 100px;
+  padding: 30px 100px;
 }
 
 #title {
@@ -106,6 +108,13 @@ h2 {
   min-width: 350px;
   display: flex;
   justify-content: center;
+  gap: 5px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: var(--clr-ghost-white);
+  padding: 10px 20px;
 }
 
 .navbar-menu a:hover {
@@ -114,6 +123,7 @@ h2 {
 }
 
 #footer {
+  text-align: center;
   width: 100vw;
   background-color: var(--clr-imperial-red);
   position: relative;
