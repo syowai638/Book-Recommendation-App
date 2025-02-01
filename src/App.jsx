@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import BookSearch from "./Components/BookSearch";
-import RatingForm from "./Components/RatingForm";
 import BookList from './Components/BookList';
 import NavBar from "./Components/NavBar";
 import Footer from './Components/Footer';
@@ -18,14 +16,6 @@ function App() {
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-  };
-
-  const handleRatingSubmit = (updatedBook) => {
-    setBooks((prevBooks) =>
-      prevBooks.map((book) =>
-        book.id === updatedBook.id ? updatedBook : book
-      )
-    );
   };
 
   const filteredBooks = books.filter(
